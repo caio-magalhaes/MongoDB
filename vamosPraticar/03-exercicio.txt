@@ -1,0 +1,4 @@
+Retorne a hospedagem com maior número de quartos (bedrooms), mostrando apenas o nome 
+(name) e a quantidade de quartos
+    
+    db.listing.find({},{name:true, bedrooms: true, _id: false}).sort({bedrooms: -1}).limit(1)

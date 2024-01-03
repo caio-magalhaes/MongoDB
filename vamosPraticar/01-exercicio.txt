@@ -1,0 +1,5 @@
+Retorne a quantidade de documentos inseridos na coleção 
+listing
+   db.listing.count() 
+   db.listing.estimatedDocumentCount()
+   db.listing.countDocuments()

@@ -1,0 +1,3 @@
+Ordena a coleção listing pela quantidade de quartos (bedrooms) em ordem crescente, 
+mostrando apenas o nome (name) e a quantidade de quartos
+    db.listing.find({}, {name: true, bedrooms: true, _id: false}).sort({bedrooms:1})
