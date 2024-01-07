@@ -1,0 +1,14 @@
+ Retorne o nome da acomodação (name), o resumo da acomodação (summary), seu preço (price) e todos as notas de reviews 
+ (review_score) dos superhosts (host.host_is_superhost) com número de reviews (number_of_reviews) superior a 500
+
+    db.listing.find({
+        $and: [
+            "host.host_is_superhost": true,
+            number_of_reviews: {$gte: 500},
+    ]},{
+        name: 1,
+        summary:1,
+        price: 1,
+        review_scores: 1,
+        _id: 0,
+    },)

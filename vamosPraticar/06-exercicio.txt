@@ -1,0 +1,11 @@
+Retorne o identificador do host (host.host_id), nome (host.host_name) e localização (host.
+host_location) de todos os superhost (host.host_is_superhost)
+
+    db.listing.find({
+    "host.host_is_superhost": true
+    },{
+        "host.host_id": 1,
+        "host.host_name": 1,
+        "host.host_location": 1,
+        _id: 0,
+    })

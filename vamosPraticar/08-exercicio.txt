@@ -1,0 +1,24 @@
+Retorne o nome (name), a descrição (description), o número de reviews (number_of_reviews), as facilidades (amenities) e o 
+preço (price) das acomodações que aceitam pets (amenities deve conter “Pets allowed”) ordenado pelo maior número de reviews, 
+menor preço e em ordem alfabética
+
+db.listing.find({
+    amenities: {
+        $all: ["Pets allowed”]
+    }
+},
+{
+    name : 1,
+    description: 1,
+    number_of_reviews: 1,
+    amenities: 1,
+    price: 1,
+    _id: 0,
+}).sort(
+    number_of_reviews: -1,
+    price: 1,
+    name: 1,
+)
+
+o padrão é crescente do menor para o maior.
+No caso de letras o padrão é o alfabético

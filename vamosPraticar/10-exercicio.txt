@@ -1,0 +1,19 @@
+Retorne todas as imagens (images) e identificador (_id) dos documentos que NÃO atendem ao padrão de URL
+    Padrão da URL: https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large
+    Expressão regular, caso necessário: ^https:\/\/(a0\.muscache\.com)([\\/\-a-z0-9]*)(.jpg)
+
+
+   db.listing.find(
+    {
+        images: { $exists: true },
+        "images.picture_url": {
+            $not: {
+                $regex: /^https:\/\/a0\.muscache\.com[\\/\-a-z0-9]*\.jpg/
+            }
+        }
+    },
+    {
+        images: 1,
+        _id: 1
+    }
+)
